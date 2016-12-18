@@ -19,21 +19,23 @@ fun main(args: Array<String>) {
 
             val chessPuzzle = ChessPuzzle(rows, columns, kings, queens, rooks, bishops, knights)
 
-            var milliseconds = measureTimeMillis {
+            val elapsedTime = measureTimeMillis {
                 chessPuzzle.solve()
             }
 
-            val hours = milliseconds / (1000 * 60 * 60) % 24
-            val minutes = milliseconds / (1000 * 60) % 60
-            val seconds = milliseconds / 1000 % 60
-            milliseconds %= 1000
-
-            val elapsedTime = String.format("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds)
-
             println("Количество комбинаций: ${chessPuzzle.numberOfUniqueSolutions}")
-            println("    Затраченное время: $elapsedTime")
+            println("    Затраченное время: ${convertMillisToHumanReadableFormat(elapsedTime)}")
         } catch (e: NumberFormatException) {
             logger.error("Один из указанных аргументов командной строки не является целым числом", e)
         }
     }
+}
+
+private fun convertMillisToHumanReadableFormat(timeInMilliseconds: Long): String {
+    val hours = timeInMilliseconds / (1000 * 60 * 60) % 24
+    val minutes = timeInMilliseconds / (1000 * 60) % 60
+    val seconds = timeInMilliseconds / 1000 % 60
+    val milliseconds = timeInMilliseconds % 1000
+
+    return String.format("%02d:%02d:%02d.%03d", hours, minutes, seconds, milliseconds)
 }
