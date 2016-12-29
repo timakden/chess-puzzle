@@ -4,19 +4,11 @@ package ru.timakden.chesspuzzle
  * Король, перемещается на любое соседнее поле в любом направлении.
  */
 class King(row: Int, column: Int) : ChessPiece(row, column) {
+    override fun toString() = "K"
 
-    override fun toString(): String {
-        return "K"
-    }
-
-    override fun canAttackAnotherChessPiece(anotherChessPiece: ChessPiece): Boolean {
-        val row = row
-        val column = column
-        val anotherRow = anotherChessPiece.row
-        val anotherColumn = anotherChessPiece.column
-
-        return Math.abs(row - anotherRow) == 1 && Math.abs(column - anotherColumn) == 1 ||
-                row == anotherRow && Math.abs(column - anotherColumn) == 1 ||
-                column == anotherColumn && Math.abs(row - anotherRow) == 1
+    override fun canAttackAnotherPiece(anotherPiece: ChessPiece): Boolean {
+        return Math.abs(row - anotherPiece.row) == 1 && Math.abs(column - anotherPiece.column) == 1 ||
+                row == anotherPiece.row && Math.abs(column - anotherPiece.column) == 1 ||
+                column == anotherPiece.column && Math.abs(row - anotherPiece.row) == 1
     }
 }

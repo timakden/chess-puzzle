@@ -15,17 +15,15 @@ class ChessBoard(
         /**
          * Шахматные фигуры, которые осталось разместить на доске.
          */
-        val remainingChessPieces: MutableList<String>) {
+        val remainingPieces: MutableList<String>) {
 
     /**
      * Шахматные фигуры, расположенные на доске.
      */
-    val placedChessPieces = mutableListOf<ChessPiece>()
+    val placedPieces = mutableListOf<ChessPiece>()
 
     /**
      * Определение того, занята ли клетка с координатами `(row, column)` какой-нибудь шахматной фигурой.
      */
-    fun isCellFree(row: Int, column: Int): Boolean {
-        return placedChessPieces.none { it.row == row && it.column == column }
-    }
+    fun isCellFree(row: Int, column: Int) = placedPieces.none { it.row == row && it.column == column }
 }

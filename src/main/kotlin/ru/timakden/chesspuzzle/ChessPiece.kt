@@ -17,16 +17,15 @@ abstract class ChessPiece(
     /**
      * Фигура является "безопасной", если она не может атаковать другую фигуру или другая фигура не может атаковать её.
      */
-    fun isSafe(chessBoard: ChessBoard): Boolean {
+    fun isSafe(board: ChessBoard): Boolean {
         var isSafe = true
 
-        chessBoard.placedChessPieces.forEach { chessPiece ->
-            isSafe = isSafe && (!(this.canAttackAnotherChessPiece(chessPiece) ||
-                    (chessPiece.canAttackAnotherChessPiece(this))))
+        board.placedPieces.forEach { piece ->
+            isSafe = isSafe && !(this.canAttackAnotherPiece(piece) || (piece.canAttackAnotherPiece(this)))
         }
 
         return isSafe
     }
 
-    abstract fun canAttackAnotherChessPiece(anotherChessPiece: ChessPiece): Boolean
+    abstract fun canAttackAnotherPiece(anotherPiece: ChessPiece): Boolean
 }

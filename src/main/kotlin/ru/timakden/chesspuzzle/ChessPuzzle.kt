@@ -7,7 +7,7 @@ class ChessPuzzle(rows: Int, columns: Int, kings: Int, queens: Int, rooks: Int, 
     /**
      * Фабрика для создания шахматных фигур.
      */
-    private val chessPieceFactory = ChessPieceFactory()
+    private val pieceFactory = ChessPieceFactory()
 
     /**
      * Количество уникальных решений задачи с указанными параметрами.
@@ -18,60 +18,60 @@ class ChessPuzzle(rows: Int, columns: Int, kings: Int, queens: Int, rooks: Int, 
     /**
      * Шахматная доска.
      */
-    private val chessBoard: ChessBoard
+    private val board: ChessBoard
 
     /**
      * Ассоциативный массив для хранения последних размещённых шахматных фигур каждого типа.
      */
-    private val lastPlacedChessPieces = mutableMapOf<String, ChessPiece?>()
+    private val lastPlacedPieces = mutableMapOf<String, ChessPiece?>()
 
     init {
         val remainingChessPieces = mutableListOf<String>()
 
-        (0 until kings).forEach { i -> remainingChessPieces.add("K") }
-        (0 until queens).forEach { i -> remainingChessPieces.add("Q") }
-        (0 until rooks).forEach { i -> remainingChessPieces.add("R") }
-        (0 until bishops).forEach { i -> remainingChessPieces.add("B") }
-        (0 until knights).forEach { i -> remainingChessPieces.add("N") }
+        (0 until kings).forEach { remainingChessPieces.add("K") }
+        (0 until queens).forEach { remainingChessPieces.add("Q") }
+        (0 until rooks).forEach { remainingChessPieces.add("R") }
+        (0 until bishops).forEach { remainingChessPieces.add("B") }
+        (0 until knights).forEach { remainingChessPieces.add("N") }
 
-        chessBoard = ChessBoard(rows, columns, remainingChessPieces)
+        board = ChessBoard(rows, columns, remainingChessPieces)
     }
 
     fun solve() {
         // Берём первую доступную фигуру
-        val chessPieceType = chessBoard.remainingChessPieces.removeAt(0)
+        val pieceType = board.remainingPieces.removeAt(0)
 
         // Получаем последнюю поставленную фигуру такого типа
-        val lastPlacedChessPiece = lastPlacedChessPieces[chessPieceType]
+        val lastPlacedPiece = lastPlacedPieces[pieceType]
 
         var r = 0
         var c = 0
 
-        if (lastPlacedChessPiece != null) {
+        lastPlacedPiece?.let {
             // Пропускаем повторяющиеся решения
-            r = lastPlacedChessPiece.row
-            c = lastPlacedChessPiece.column + 1
+            r = lastPlacedPiece.row
+            c = lastPlacedPiece.column + 1
         }
 
-        for (row in r until chessBoard.rows) {
-            for (column in c until chessBoard.columns) {
+        for (row in r until board.rows) {
+            for (column in c until board.columns) {
                 // Если клетка занята, то пропускаем итерацию
-                if (!chessBoard.isCellFree(row, column)) {
+                if (!board.isCellFree(row, column)) {
                     continue
                 }
 
-                val chessPieceToPlace = chessPieceFactory.getChessPiece(chessPieceType, row, column)
+                val pieceToPlace = pieceFactory.getPiece(pieceType, row, column)
 
                 // Если фигуру нельзя безопасно разместить на доске, то пропускаем итерацию
-                if (!chessPieceToPlace!!.isSafe(chessBoard)) {
+                if (!pieceToPlace.isSafe(board)) {
                     continue
                 }
 
                 // Добавляем фигуру на доску
-                chessBoard.placedChessPieces.add(0, chessPieceToPlace)
-                lastPlacedChessPieces.put(chessPieceToPlace.toString(), chessPieceToPlace)
+                board.placedPieces.add(0, pieceToPlace)
+                lastPlacedPieces.put(pieceToPlace.toString(), pieceToPlace)
 
-                if (chessBoard.remainingChessPieces.isEmpty()) {
+                if (board.remainingPieces.isEmpty()) {
                     // Если фигур больше не осталось, то решение найдено
                     numberOfUniqueSolutions++
                 } else {
@@ -80,14 +80,14 @@ class ChessPuzzle(rows: Int, columns: Int, kings: Int, queens: Int, rooks: Int, 
                 }
 
                 // Убираем последнюю фигуру
-                chessBoard.placedChessPieces.remove(chessPieceToPlace)
+                board.placedPieces.remove(pieceToPlace)
             }
 
             c = 0
         }
 
         // Возвращаем фигуру
-        chessBoard.remainingChessPieces.add(0, chessPieceType)
-        lastPlacedChessPieces.put(chessPieceType, null)
+        board.remainingPieces.add(0, pieceType)
+        lastPlacedPieces.put(pieceType, null)
     }
 }
