@@ -69,7 +69,7 @@ class ChessPuzzle(rows: Int, columns: Int, kings: Int, queens: Int, rooks: Int, 
 
                 // Добавляем фигуру на доску
                 board.placedPieces.add(0, pieceToPlace)
-                lastPlacedPieces.put(pieceToPlace.toString(), pieceToPlace)
+                lastPlacedPieces[pieceToPlace.toString()] = pieceToPlace
 
                 if (board.remainingPieces.isEmpty()) {
                     // Если фигур больше не осталось, то решение найдено
@@ -88,6 +88,6 @@ class ChessPuzzle(rows: Int, columns: Int, kings: Int, queens: Int, rooks: Int, 
 
         // Возвращаем фигуру
         board.remainingPieces.add(0, pieceType)
-        lastPlacedPieces.put(pieceType, null)
+        lastPlacedPieces[pieceType] = null
     }
 }

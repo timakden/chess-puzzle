@@ -1,88 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="chesspuzzle:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="ru.timakden" external.system.module.type="sourceSet" external.system.module.version="1.0" version="4">
+<module external.linked.project.id="chesspuzzle:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="ru.timakden" external.system.module.type="sourceSet" external.system.module.version="1.0" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="1">
-        <option name="compilerInfo">
-          <KotlinCompilerInfo>
-            <option name="compilerSettings">
-              <CompilerSettings>
-                <option name="additionalArguments" value="-version" />
-                <option name="copyJsLibraryFiles" value="true" />
-                <option name="outputDirectoryForJsLibraryFiles" value="lib" />
-              </CompilerSettings>
-            </option>
-            <option name="k2jsCompilerArguments">
-              <K2JSCompilerArguments>
-                <option name="outputFile" />
-                <option name="noStdlib" value="false" />
-                <option name="libraryFiles" />
-                <option name="sourceMap" value="false" />
-                <option name="metaInfo" value="false" />
-                <option name="kjsm" value="false" />
-                <option name="target" />
-                <option name="moduleKind" value="plain" />
-                <option name="main" />
-                <option name="outputPrefix" />
-                <option name="outputPostfix" />
-                <option name="languageVersion" />
-                <option name="apiVersion" />
-                <option name="suppressWarnings" value="false" />
-                <option name="verbose" value="false" />
-                <option name="version" value="false" />
-                <option name="help" value="false" />
-                <option name="extraHelp" value="false" />
-                <option name="noInline" value="false" />
-                <option name="repeat" />
-                <option name="pluginClasspaths" />
-                <option name="pluginOptions" />
-                <option name="freeArgs">
-                  <list />
-                </option>
-                <option name="unknownExtraFlags">
-                  <list />
-                </option>
-              </K2JSCompilerArguments>
-            </option>
-            <option name="_commonCompilerArguments">
-              <DummyImpl>
-                <option name="languageVersion" />
-                <option name="apiVersion" />
-                <option name="suppressWarnings" value="false" />
-                <option name="verbose" value="false" />
-                <option name="version" value="false" />
-                <option name="help" value="false" />
-                <option name="extraHelp" value="false" />
-                <option name="noInline" value="false" />
-                <option name="repeat" />
-                <option name="pluginClasspaths">
-                  <array />
-                </option>
-                <option name="pluginOptions">
-                  <array />
-                </option>
-                <option name="freeArgs">
-                  <list />
-                </option>
-                <option name="unknownExtraFlags">
-                  <list />
-                </option>
-              </DummyImpl>
-            </option>
-          </KotlinCompilerInfo>
-        </option>
-        <option name="versionInfo">
-          <KotlinVersionInfo>
-            <option name="apiLevel" value="1.0" />
-            <option name="languageLevel" value="1.0" />
-            <option name="targetPlatformName" value="JVM 1.6" />
-          </KotlinVersionInfo>
-        </option>
+      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
+        <compilerSettings />
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../build/classes/kotlin/main" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="chesspuzzle" />
+          <option name="jvmTarget" value="1.8" />
+          <option name="addCompilerBuiltIns" value="true" />
+          <option name="loadBuiltInsFromDependencies" value="true" />
+          <option name="languageVersion" value="1.2" />
+          <option name="apiVersion" value="1.2" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array />
+          </option>
+        </compilerArguments>
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
-    <output url="file://$MODULE_DIR$/../../build/classes/main" />
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../out/production/classes" />
+    <exclude-output />
     <content url="file://$MODULE_DIR$/../../src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/kotlin" isTestSource="false" />
@@ -90,10 +34,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.0.6" level="project" />
-    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-classic:1.1.8" level="project" />
-    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:1.0.6" level="project" />
-    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.1.8" level="project" />
-    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.21" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.60" level="project" />
+    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.2.60" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.60" level="project" />
+    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.2.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.2.60" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
   </component>
 </module>
