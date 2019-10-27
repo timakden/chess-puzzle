@@ -1,38 +1,28 @@
 package ru.timakden.chesspuzzle
 
-/**
- * Класс описывает решение шахматной задачи.
- */
+/** Класс описывает решение шахматной задачи. */
 class ChessPuzzle(rows: Int, columns: Int, kings: Int, queens: Int, rooks: Int, bishops: Int, knights: Int) {
-    /**
-     * Фабрика для создания шахматных фигур.
-     */
+    /** Фабрика для создания шахматных фигур. */
     private val pieceFactory = ChessPieceFactory()
 
-    /**
-     * Количество уникальных решений задачи с указанными параметрами.
-     */
+    /** Количество уникальных решений задачи с указанными параметрами. */
     var numberOfUniqueSolutions = 0
         private set
 
-    /**
-     * Шахматная доска.
-     */
+    /** Шахматная доска. */
     private val board: ChessBoard
 
-    /**
-     * Ассоциативный массив для хранения последних размещённых шахматных фигур каждого типа.
-     */
+    /** Ассоциативный массив для хранения последних размещённых шахматных фигур каждого типа. */
     private val lastPlacedPieces = mutableMapOf<String, ChessPiece?>()
 
     init {
         val remainingChessPieces = mutableListOf<String>()
 
-        (0 until kings).forEach { remainingChessPieces.add("K") }
-        (0 until queens).forEach { remainingChessPieces.add("Q") }
-        (0 until rooks).forEach { remainingChessPieces.add("R") }
-        (0 until bishops).forEach { remainingChessPieces.add("B") }
-        (0 until knights).forEach { remainingChessPieces.add("N") }
+        repeat(kings) { remainingChessPieces.add("K") }
+        repeat(queens) { remainingChessPieces.add("Q") }
+        repeat(rooks) { remainingChessPieces.add("R") }
+        repeat(bishops) { remainingChessPieces.add("B") }
+        repeat(knights) { remainingChessPieces.add("N") }
 
         board = ChessBoard(rows, columns, remainingChessPieces)
     }
