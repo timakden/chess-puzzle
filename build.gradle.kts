@@ -2,8 +2,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     idea
-    id("com.github.ben-manes.versions") version "0.27.0"
-    kotlin("jvm") version "1.3.50"
+    id("com.github.ben-manes.versions") version "0.28.0"
+    kotlin("jvm") version "1.3.71"
 }
 
 group = "ru.timakden"
@@ -14,7 +14,7 @@ repositories {
     mavenCentral()
 }
 
-val kotlinVersion = "1.3.50"
+val kotlinVersion = "1.3.71"
 
 dependencies {
     implementation(kotlin("stdlib-jdk8", kotlinVersion))
@@ -25,7 +25,7 @@ dependencies {
 
 tasks {
     withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.jvmTarget = "11"
     }
 
     withType<Test> {
