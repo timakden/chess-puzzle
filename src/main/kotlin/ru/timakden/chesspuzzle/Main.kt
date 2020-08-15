@@ -1,11 +1,8 @@
 package ru.timakden.chesspuzzle
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import org.tinylog.kotlin.Logger
 import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
-
-val logger: Logger = LoggerFactory.getLogger("Main")
 
 @ExperimentalTime
 fun main(args: Array<String>) {
@@ -28,9 +25,9 @@ fun main(args: Array<String>) {
             chessPuzzle.solve()
         }
 
-        logger.info("Число комбинаций: ${chessPuzzle.numberOfUniqueSolutions}")
-        logger.info("Затраченное время: $duration")
+        Logger.info("Число комбинаций: ${chessPuzzle.numberOfUniqueSolutions}")
+        Logger.info("Затраченное время: $duration")
     } catch (e: Exception) {
-        logger.error("Во время выполнения программы произошла ошибка!", e)
+        Logger.error(e, "Во время выполнения программы произошла ошибка!")
     }
 }
