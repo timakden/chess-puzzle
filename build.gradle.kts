@@ -1,3 +1,4 @@
+import org.gradle.api.file.DuplicatesStrategy.INCLUDE
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -44,6 +45,8 @@ tasks {
         }
 
         from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+
+        duplicatesStrategy = INCLUDE
     }
 }
 
