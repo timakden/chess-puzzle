@@ -1,6 +1,6 @@
-# Chess puzzle
-
 [![Java CI with Gradle](https://github.com/timakden/chess-puzzle/actions/workflows/gradle.yml/badge.svg)](https://github.com/timakden/chess-puzzle/actions/workflows/gradle.yml)
+
+# Chess puzzle
 
 ## Requirements
 
