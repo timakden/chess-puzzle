@@ -1,82 +1,73 @@
 package ru.timakden.chesspuzzle
 
-/** Класс описывает решение шахматной задачи. */
-class ChessPuzzle(rows: Int, columns: Int, kings: Int, queens: Int, rooks: Int, bishops: Int, knights: Int) {
-    /** Фабрика для создания шахматных фигур. */
-    private val pieceFactory = ChessPieceFactory()
-
-    /** Количество уникальных решений задачи с указанными параметрами. */
+data class ChessPuzzle(
+    val rows: Int,
+    val columns: Int,
+    val kings: Int,
+    val queens: Int,
+    val rooks: Int,
+    val bishops: Int,
+    val knights: Int
+) {
     var numberOfUniqueSolutions = 0
         private set
 
-    /** Шахматная доска. */
     private val board: ChessBoard
 
-    /** Ассоциативный массив для хранения последних размещённых шахматных фигур каждого типа. */
     private val lastPlacedPieces = mutableMapOf<String, ChessPiece?>()
 
     init {
         val remainingChessPieces = mutableListOf<String>()
 
-        repeat(kings) { remainingChessPieces.add("K") }
-        repeat(queens) { remainingChessPieces.add("Q") }
-        repeat(rooks) { remainingChessPieces.add("R") }
-        repeat(bishops) { remainingChessPieces.add("B") }
-        repeat(knights) { remainingChessPieces.add("N") }
+        repeat(kings) { remainingChessPieces += "K" }
+        repeat(queens) { remainingChessPieces += "Q" }
+        repeat(rooks) { remainingChessPieces += "R" }
+        repeat(bishops) { remainingChessPieces += "B" }
+        repeat(knights) { remainingChessPieces += "N" }
 
         board = ChessBoard(rows, columns, remainingChessPieces)
     }
 
     fun solve() {
-        // Берём первую доступную фигуру
+        // Take first available piece
         val pieceType = board.remainingPieces.removeAt(0)
 
-        // Получаем последнюю поставленную фигуру такого типа
+        // Get last placed piece of that type
         val lastPlacedPiece = lastPlacedPieces[pieceType]
 
         var r = 0
         var c = 0
 
         lastPlacedPiece?.let {
-            // Пропускаем повторяющиеся решения
+            // Skip duplicated solutions
             r = lastPlacedPiece.row
             c = lastPlacedPiece.column + 1
         }
 
         for (row in r until board.rows) {
             for (column in c until board.columns) {
-                // Если клетка занята, то пропускаем итерацию
-                if (!board.isCellFree(row, column)) {
-                    continue
-                }
+                // If cell is occupied then skip current iteration
+                if (!board.isCellFree(row, column)) continue
 
-                val pieceToPlace = pieceFactory.getPiece(pieceType, row, column)
+                val pieceToPlace = ChessPieceFactory.getPiece(pieceType, row, column)
 
-                // Если фигуру нельзя безопасно разместить на доске, то пропускаем итерацию
-                if (!pieceToPlace.isSafe(board)) {
-                    continue
-                }
+                // If this piece can't be safely placed then skip current iteration
+                if (!pieceToPlace.isSafe(board)) continue
 
-                // Добавляем фигуру на доску
+                // Add piece to board
                 board.placedPieces.add(0, pieceToPlace)
                 lastPlacedPieces[pieceToPlace.toString()] = pieceToPlace
 
-                if (board.remainingPieces.isEmpty()) {
-                    // Если фигур больше не осталось, то решение найдено
-                    numberOfUniqueSolutions++
-                } else {
-                    // Продолжение поиска решения
-                    solve()
-                }
+                if (board.remainingPieces.isEmpty()) numberOfUniqueSolutions++ else solve()
 
-                // Убираем последнюю фигуру
+                // Remove last placed piece
                 board.placedPieces.remove(pieceToPlace)
             }
 
             c = 0
         }
 
-        // Возвращаем фигуру
+        // Return piece to board
         board.remainingPieces.add(0, pieceType)
         lastPlacedPieces[pieceType] = null
     }

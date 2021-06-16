@@ -1,14 +1,11 @@
-# chess-puzzle
+# Chess puzzle
 
-## Дано
-Дан размер поля ШИРИНА X ВЫСОТА и количество фигур конкретного типа.
+## Requirements
 
-## Необходимо
-Найти количество уникальных расстановок фигур на поле заданного размера, чтобы фигуры не угрожали друг другу.
+Find the number of unique arrangements of pieces on a chessboard of a given size (`WIDTH`x`HEIGHT`) so that the pieces
+do not threaten each other.
 
-## Примеры
-1. На поле 3x3 и фигурами: 2 короля, 1 ладья — 4 уникальные расстановки.
-2. На поле 4x4 и фигурами: 2 ладьи, 4 коня — 8 уникальных расстановок.
+## Examples
 
-## Параметры, при которых необходимо произвести расчет
-Поле 6x9 и фигуры: 2 короля, 1 королева, 1 офицер, 1 ладья, 1 конь.
+1. Chessboard of size 3x3 and pieces: 2 kings, 1 rook – 4 unique solutions.
+2. Chessboard of size 4x4 and pieces: 2 rooks, 4 knights – 8 unique solutions.

@@ -8,7 +8,7 @@ import kotlin.time.measureTime
 fun main(args: Array<String>) {
     try {
         require(args.size == 7) {
-            "Программу нужно запускать с 7 аргументами: строки столбцы короли ферзи ладьи слоны кони"
+            "This program must be executed with 7 args: rows columns kings queens rooks bishops knights"
         }
 
         val rows = args[0].toInt()
@@ -21,13 +21,15 @@ fun main(args: Array<String>) {
 
         val chessPuzzle = ChessPuzzle(rows, columns, kings, queens, rooks, bishops, knights)
 
+        Logger.info { "Initial data: $chessPuzzle" }
+
         val duration = measureTime {
             chessPuzzle.solve()
         }
 
-        Logger.info("Число комбинаций: ${chessPuzzle.numberOfUniqueSolutions}")
-        Logger.info("Затраченное время: $duration")
+        Logger.info { "Number of unique solutions: ${chessPuzzle.numberOfUniqueSolutions}" }
+        Logger.info { "Elapsed time: $duration" }
     } catch (e: Exception) {
-        Logger.error(e, "Во время выполнения программы произошла ошибка!")
+        Logger.error(e) { "An error occurred during the execution!" }
     }
 }
