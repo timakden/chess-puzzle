@@ -1,5 +1,7 @@
 # Chess puzzle
 
+[![Java CI with Gradle](https://github.com/timakden/chess-puzzle/actions/workflows/gradle.yml/badge.svg)](https://github.com/timakden/chess-puzzle/actions/workflows/gradle.yml)
+
 ## Requirements
 
 Find the number of unique arrangements of pieces on a chessboard of a given size (`WIDTH`x`HEIGHT`) so that the pieces
