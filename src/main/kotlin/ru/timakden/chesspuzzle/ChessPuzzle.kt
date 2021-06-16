@@ -19,11 +19,11 @@ data class ChessPuzzle(
     init {
         val remainingChessPieces = mutableListOf<String>()
 
-        repeat(kings) { remainingChessPieces += "K" }
-        repeat(queens) { remainingChessPieces += "Q" }
-        repeat(rooks) { remainingChessPieces += "R" }
-        repeat(bishops) { remainingChessPieces += "B" }
-        repeat(knights) { remainingChessPieces += "N" }
+        repeat(kings) { remainingChessPieces += KING }
+        repeat(queens) { remainingChessPieces += QUEEN }
+        repeat(rooks) { remainingChessPieces += ROOK }
+        repeat(bishops) { remainingChessPieces += BISHOP }
+        repeat(knights) { remainingChessPieces += KNIGHT }
 
         board = ChessBoard(rows, columns, remainingChessPieces)
     }

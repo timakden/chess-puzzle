@@ -23,9 +23,7 @@ fun main(args: Array<String>) {
 
         Logger.info { "Initial data: $chessPuzzle" }
 
-        val duration = measureTime {
-            chessPuzzle.solve()
-        }
+        val duration = measureTime { chessPuzzle.solve() }
 
         Logger.info { "Number of unique solutions: ${chessPuzzle.numberOfUniqueSolutions}" }
         Logger.info { "Elapsed time: $duration" }
