@@ -3,7 +3,7 @@ package ru.timakden.chesspuzzle
 class ChessBoard(
     val rows: Int,
     val columns: Int,
-    val remainingPieces: MutableList<String>
+    val remainingPieces: ArrayDeque<String>
 ) {
     val placedPieces = mutableListOf<ChessPiece>()
 

@@ -25,23 +25,21 @@ data class ChessPuzzle(
         repeat(bishops) { remainingChessPieces += BISHOP }
         repeat(knights) { remainingChessPieces += KNIGHT }
 
-        board = ChessBoard(rows, columns, remainingChessPieces)
+        board = ChessBoard(rows, columns, ArrayDeque(remainingChessPieces))
     }
 
     fun solve() {
         // Take first available piece
-        val pieceType = board.remainingPieces.removeAt(0)
-
-        // Get last placed piece of that type
-        val lastPlacedPiece = lastPlacedPieces[pieceType]
+        val pieceType = board.remainingPieces.removeFirst()
 
         var r = 0
         var c = 0
 
-        lastPlacedPiece?.let {
+        // Get last placed piece of that type
+        lastPlacedPieces[pieceType]?.let {
             // Skip duplicated solutions
-            r = lastPlacedPiece.row
-            c = lastPlacedPiece.column + 1
+            r = it.row
+            c = it.column + 1
         }
 
         for (row in r until board.rows) {
@@ -68,7 +66,7 @@ data class ChessPuzzle(
         }
 
         // Return piece to board
-        board.remainingPieces.add(0, pieceType)
+        board.remainingPieces.addFirst(pieceType)
         lastPlacedPieces[pieceType] = null
     }
 }
