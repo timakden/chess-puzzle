@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     idea
     id("com.github.ben-manes.versions") version "0.42.0"
-    kotlin("jvm") version "1.6.21"
+    kotlin("jvm") version "1.7.0"
 }
 
 group = "ru.timakden"
@@ -31,7 +31,7 @@ dependencies {
 
 kotlin {
     jvmToolchain {
-        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(17))
+        this.languageVersion.set(JavaLanguageVersion.of(17))
     }
 }
 
