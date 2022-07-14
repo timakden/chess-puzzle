@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     idea
     id("com.github.ben-manes.versions") version "0.42.0"
-    kotlin("jvm") version "1.7.0"
+    kotlin("jvm") version "1.7.10"
 }
 
 group = "ru.timakden"
@@ -14,7 +14,7 @@ repositories {
     mavenCentral()
 }
 
-val kotestVersion = "5.3.0"
+val kotestVersion = "5.3.2"
 val tinylogVersion = "2.4.1"
 
 dependencies {
