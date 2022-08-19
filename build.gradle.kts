@@ -14,8 +14,8 @@ repositories {
     mavenCentral()
 }
 
-val kotestVersion = "5.4.0"
-val tinylogVersion = "2.4.1"
+val kotestVersion = "5.4.2"
+val tinylogVersion = "2.5.0"
 
 dependencies {
     implementation(kotlin("reflect"))
