@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     idea
-    id("com.github.ben-manes.versions") version "0.43.0"
-    kotlin("jvm") version "1.7.20"
+    id("com.github.ben-manes.versions") version "0.45.0"
+    kotlin("jvm") version "1.8.0"
 }
 
 group = "ru.timakden"
@@ -14,12 +14,12 @@ repositories {
     mavenCentral()
 }
 
-val kotestVersion = "5.5.2"
-val tinylogVersion = "2.5.0"
+val kotestVersion = "5.5.4"
+val tinylogVersion = "2.6.0"
 
 dependencies {
     implementation(kotlin("reflect"))
-    implementation(kotlin("stdlib-jdk8"))
+    implementation(kotlin("stdlib"))
     implementation("org.tinylog:tinylog-api-kotlin:$tinylogVersion")
     implementation("org.tinylog:tinylog-impl:$tinylogVersion")
 
