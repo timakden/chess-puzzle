@@ -1,4 +1,4 @@
-package ru.timakden.chesspuzzle
+package ru.timakden.chess
 
 const val BISHOP = "B"
 const val KING = "K"

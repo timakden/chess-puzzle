@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     idea
     id("com.github.ben-manes.versions") version "0.45.0"
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.8.10"
 }
 
 group = "ru.timakden"
@@ -14,7 +14,7 @@ repositories {
     mavenCentral()
 }
 
-val kotestVersion = "5.5.4"
+val kotestVersion = "5.5.5"
 val tinylogVersion = "2.6.0"
 
 dependencies {
@@ -49,7 +49,7 @@ tasks {
 
     jar {
         manifest {
-            attributes("Main-Class" to "ru.timakden.chesspuzzle.MainKt")
+            attributes("Main-Class" to "ru.timakden.chess.MainKt")
         }
 
         from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })

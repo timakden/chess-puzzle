@@ -1,4 +1,4 @@
-package ru.timakden.chesspuzzle
+package ru.timakden.chess
 
 data class ChessPuzzle(
     val rows: Int,

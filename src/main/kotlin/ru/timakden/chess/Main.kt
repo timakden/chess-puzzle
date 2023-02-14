@@ -1,4 +1,4 @@
-package ru.timakden.chesspuzzle
+package ru.timakden.chess
 
 import org.tinylog.kotlin.Logger
 import kotlin.time.ExperimentalTime

@@ -1,4 +1,4 @@
-package ru.timakden.chesspuzzle
+package ru.timakden.chess
 
 import io.kotest.core.spec.style.WordSpec
 import io.kotest.matchers.shouldBe
