@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     idea
-    id("com.github.ben-manes.versions") version "0.45.0"
+    id("com.github.ben-manes.versions") version "0.46.0"
     kotlin("jvm") version "1.8.10"
 }
 
@@ -15,7 +15,7 @@ repositories {
 }
 
 val kotestVersion = "5.5.5"
-val tinylogVersion = "2.6.0"
+val tinylogVersion = "2.6.1"
 
 dependencies {
     implementation(kotlin("reflect"))
