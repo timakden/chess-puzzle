@@ -42,8 +42,8 @@ data class ChessPuzzle(
             c = it.column + 1
         }
 
-        for (row in r until board.rows) {
-            for (column in c until board.columns) {
+        for (row in r..<board.rows) {
+            for (column in c..<board.columns) {
                 // If cell is occupied then skip current iteration
                 if (!board.isCellFree(row, column)) continue
 

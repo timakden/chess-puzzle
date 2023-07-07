@@ -1,10 +1,8 @@
 package ru.timakden.chess
 
 import org.tinylog.kotlin.Logger
-import kotlin.time.ExperimentalTime
 import kotlin.time.measureTime
 
-@ExperimentalTime
 fun main(args: Array<String>) {
     try {
         require(args.size == 7) {
