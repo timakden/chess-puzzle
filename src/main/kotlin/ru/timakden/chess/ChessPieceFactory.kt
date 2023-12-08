@@ -8,7 +8,7 @@ object ChessPieceFactory {
             KNIGHT -> Knight(row, column)
             QUEEN -> Queen(row, column)
             BISHOP -> Bishop(row, column)
-            else -> throw IllegalArgumentException("Unknown chess piece type: $pieceType")
+            else -> error("Unknown chess piece type: $pieceType")
         }
     }
 }
