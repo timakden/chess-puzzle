@@ -15,7 +15,7 @@ repositories {
 }
 
 val kotestVersion = "5.8.0"
-val tinylogVersion = "2.6.2"
+val tinylogVersion = "2.7.0"
 
 dependencies {
     implementation(kotlin("reflect"))
