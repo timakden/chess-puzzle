@@ -1,5 +1,9 @@
 import org.gradle.api.file.DuplicatesStrategy.INCLUDE
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+
+val kotestVersion: String by project
+val kotlinVersion: String by project
+val tinylogVersion: String by project
 
 plugins {
     idea
@@ -13,9 +17,6 @@ version = "1.0"
 repositories {
     mavenCentral()
 }
-
-val kotestVersion = "5.8.0"
-val tinylogVersion = "2.7.0"
 
 dependencies {
     implementation(kotlin("reflect"))
@@ -37,14 +38,9 @@ tasks {
     compileKotlin {
         compilerOptions {
             freeCompilerArgs.add("-Xjsr305=strict")
-            jvmTarget.set(JvmTarget.JVM_21)
+            jvmTarget.set(JVM_21)
         }
     }
-
-    test {
-        useJUnitPlatform()
-    }
-
     jar {
         manifest {
             attributes("Main-Class" to "ru.timakden.chess.MainKt")
@@ -53,6 +49,12 @@ tasks {
         from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
 
         duplicatesStrategy = INCLUDE
+    }
+    test {
+        useJUnitPlatform()
+    }
+    wrapper {
+        gradleVersion = "8.6"
     }
 }
 
