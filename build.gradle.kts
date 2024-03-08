@@ -8,7 +8,7 @@ val tinylogVersion: String by project
 plugins {
     idea
     id("com.github.ben-manes.versions") version "0.51.0"
-    kotlin("jvm") version "1.9.22"
+    kotlin("jvm") version "1.9.23"
 }
 
 group = "ru.timakden"
