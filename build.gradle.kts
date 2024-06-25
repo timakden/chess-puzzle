@@ -1,10 +1,6 @@
 import org.gradle.api.file.DuplicatesStrategy.INCLUDE
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
 
-val kotestVersion: String by project
-val kotlinVersion: String by project
-val tinylogVersion: String by project
-
 plugins {
     idea
     id("com.github.ben-manes.versions") version "0.51.0"
@@ -21,13 +17,14 @@ repositories {
 dependencies {
     implementation(kotlin("reflect"))
     implementation(kotlin("stdlib"))
-    implementation("org.tinylog:tinylog-api-kotlin:$tinylogVersion")
-    implementation("org.tinylog:tinylog-impl:$tinylogVersion")
+    implementation("org.tinylog:tinylog-api-kotlin:2.7.0")
+    implementation("org.tinylog:tinylog-impl:2.7.0")
 
-    testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
-    testImplementation("io.kotest:kotest-framework-datatest:$kotestVersion")
-    testImplementation("io.kotest:kotest-property:$kotestVersion")
-    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation(platform("io.kotest:kotest-bom:5.9.1"))
+    testImplementation("io.kotest:kotest-assertions-core")
+    testImplementation("io.kotest:kotest-framework-datatest")
+    testImplementation("io.kotest:kotest-property")
+    testImplementation("io.kotest:kotest-runner-junit5")
 }
 
 kotlin {
