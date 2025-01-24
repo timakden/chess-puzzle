@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
 
 plugins {
     idea
-    id("com.github.ben-manes.versions") version "0.51.0"
+    id("com.github.ben-manes.versions") version "0.52.0"
     kotlin("jvm") version "2.1.0"
 }
 
@@ -51,7 +51,7 @@ tasks {
         useJUnitPlatform()
     }
     wrapper {
-        gradleVersion = "8.11.1"
+        gradleVersion = "8.12"
     }
 }
 
