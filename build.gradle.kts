@@ -20,9 +20,8 @@ dependencies {
     implementation("org.tinylog:tinylog-api-kotlin:2.7.0")
     implementation("org.tinylog:tinylog-impl:2.7.0")
 
-    testImplementation(platform("io.kotest:kotest-bom:5.9.1"))
+    testImplementation(platform("io.kotest:kotest-bom:6.0.0"))
     testImplementation("io.kotest:kotest-assertions-core")
-    testImplementation("io.kotest:kotest-framework-datatest")
     testImplementation("io.kotest:kotest-property")
     testImplementation("io.kotest:kotest-runner-junit5")
 }
