@@ -1,0 +1,26 @@
+[versions]
+kotlin = "2.2.20"
+kotest = "6.0.3"
+tinylog = "2.7.0"
+
+[libraries]
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+tinylog-api = { module = "org.tinylog:tinylog-api-kotlin", version.ref = "tinylog" }
+tinylog-impl = { module = "org.tinylog:tinylog-impl", version.ref = "tinylog" }
+
+[bundles]
+kotest = [
+    "kotest-assertions-core",
+    "kotest-property",
+    "kotest-runner-junit5"
+]
+tinylog = [
+    "tinylog-api",
+    "tinylog-impl"
+]
+
+[plugins]
+versions = { id = "com.github.ben-manes.versions", version = "0.52.0" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
