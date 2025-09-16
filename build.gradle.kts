@@ -15,8 +15,6 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("reflect"))
-    implementation(kotlin("stdlib"))
     implementation(libs.bundles.tinylog)
 
     testImplementation(libs.bundles.kotest)
