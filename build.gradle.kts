@@ -1,5 +1,6 @@
 import org.gradle.api.file.DuplicatesStrategy.INCLUDE
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
+import sun.tools.jar.resources.jar
 
 plugins {
     idea
@@ -44,7 +45,7 @@ tasks {
         useJUnitPlatform()
     }
     wrapper {
-        gradleVersion = "9.2.0"
+        gradleVersion = "9.2.1"
     }
 }
 
