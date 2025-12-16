@@ -1,6 +1,5 @@
 import org.gradle.api.file.DuplicatesStrategy.INCLUDE
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21
-import sun.tools.jar.resources.jar
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_24
 
 plugins {
     idea
@@ -22,14 +21,19 @@ dependencies {
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(24)
+}
+
+java {
+    toolchain {
+        targetCompatibility = JavaVersion.VERSION_24
+    }
 }
 
 tasks {
     compileKotlin {
         compilerOptions {
-            freeCompilerArgs.add("-Xjsr305=strict")
-            jvmTarget.set(JVM_21)
+            jvmTarget.set(JVM_24)
         }
     }
     jar {
