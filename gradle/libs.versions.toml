@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.3.20"
+kotlin = "2.3.21"
 kotest = "6.1.11"
 tinylog = "2.7.0"
 
