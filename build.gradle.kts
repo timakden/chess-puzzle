@@ -1,5 +1,7 @@
 import org.gradle.api.JavaVersion.VERSION_25
 import org.gradle.api.file.DuplicatesStrategy.INCLUDE
+import org.gradle.api.internal.artifacts.dsl.dependencies.DependenciesExtensionModule.module
+import org.gradle.internal.impldep.org.eclipse.jgit.diff.DiffDriver
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_25
 
 plugins {
@@ -50,7 +52,7 @@ tasks {
         useJUnitPlatform()
     }
     wrapper {
-        gradleVersion = "9.6.0"
+        gradleVersion = "9.6.1"
     }
 }
 
