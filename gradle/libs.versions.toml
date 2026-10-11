@@ -1,7 +1,7 @@
 [versions]
-kotlin = "2.4.20"
+kotlin = "2.4.21"
 kotest = "6.2.5"
-tinylog = "2.8.0"
+tinylog = "2.8.1"
 
 [libraries]
 kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
@@ -22,5 +22,5 @@ tinylog = [
 ]
 
 [plugins]
-versions = { id = "io.github.ben-manes.versions", version = "0.64.0" }
+versions = { id = "io.github.ben-manes.versions", version = "0.65.0" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
